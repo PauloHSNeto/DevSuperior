@@ -10,12 +10,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.devsuperior.myfirstproject.entities.Category;
 import com.devsuperior.myfirstproject.entities.Product;
 import com.devsuperior.myfirstproject.repositories.CategoryRepository;
+import com.devsuperior.myfirstproject.repositories.ProductRepository;
 
 @SpringBootApplication
 public class MyfirstprojectApplication implements CommandLineRunner {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
+	@Autowired
+	private ProductRepository productRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(MyfirstprojectApplication.class, args);
@@ -28,6 +31,7 @@ public class MyfirstprojectApplication implements CommandLineRunner {
 		Category cat2 = new Category(2L, "Books");
 		Category cat3 = new Category(3L, "Video-Games");
 		Category cat4 = new Category(4L, "SmarthPhones");		
+		
 		categoryRepository.save(cat1);
 		categoryRepository.save(cat2);
 		categoryRepository.save(cat3);
@@ -49,19 +53,29 @@ public class MyfirstprojectApplication implements CommandLineRunner {
 		Product p14 = new Product(14L, "The Strain", 22.00,false, cat2);
 		Product p15 = new Product(15L, "World of Warcraft", 45.00,true, cat3);
 		Product p16 = new Product(16L, "Tablet", 400.00,true, cat1);
-		
-		
-		cat1.getProducts().addAll(Arrays.asList(p2, p6,p1,p11,p16));
-		cat2.getProducts().addAll(Arrays.asList(p1, p5,p8,p13,p14));
-		cat3.getProducts().addAll(Arrays.asList(p4, p3,p10,p12,p15));
-		cat4.getProducts().addAll(Arrays.asList(p3, p4,p9));
-		
-		categoryRepository.save(cat1);
-		categoryRepository.save(cat2);
-		categoryRepository.save(cat3);
-		categoryRepository.save(cat4);
 
+		productRepository.save(p1);
+		productRepository.save(p2);
+		productRepository.save(p3);
+		productRepository.save(p4);
+		productRepository.save(p5);
+		productRepository.save(p6);
+		productRepository.save(p7);
+		productRepository.save(p8);
+		productRepository.save(p9);
+		productRepository.save(p10);
+		productRepository.save(p11);
+		productRepository.save(p12);
+		productRepository.save(p13);
+		productRepository.save(p14);
+		productRepository.save(p15);
+		productRepository.save(p16);
 		
+		
+		cat1.getProducts().addAll(Arrays.asList(p2, p6,p7,p11,p16));
+		cat2.getProducts().addAll(Arrays.asList(p1,p5,p8,p13,p14));
+		cat3.getProducts().addAll(Arrays.asList(p4,p10,p12,p15));
+		cat4.getProducts().addAll(Arrays.asList(p3,p9));
 		
 }
 
