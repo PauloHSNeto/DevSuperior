@@ -27,13 +27,15 @@ public class MyfirstprojectApplication implements CommandLineRunner {
 		Category cat4 = new Category(4L, "Toys");
 		Category cat5 = new Category(5L, "SmarthPhones");
 		Category cat6 = new Category(6L, "Costumes");
-		
+		Category cat7 = new Category(7L, "Swords");
+
 		categoryRepository.save(cat1);
 		categoryRepository.save(cat2);
 		categoryRepository.save(cat3);
 		categoryRepository.save(cat4);
 		categoryRepository.save(cat5);
 		categoryRepository.save(cat6);
+		categoryRepository.save(cat7);
 
 	}
 
