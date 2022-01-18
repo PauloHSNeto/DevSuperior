@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 
 
 @Entity
-public class Product implements Serializable {
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -19,20 +19,20 @@ public class Product implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private Double price;
+	private Short age;
 	private Boolean is_avaliable;	
 	
 	@ManyToOne
 	@JoinColumn(name = "category_name")
 	private Category category;
 
-	public Product() {
+	public User() {
 	}	
-	public Product(Long id, String name, Double price, Boolean is_avaliable, Category category) {
+	public User(Long id, String name, Short age, Boolean is_avaliable, Category category) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.price = price;
+		this.age = age;
 		this.is_avaliable = is_avaliable;
 		this.category = category;
 	}
@@ -53,12 +53,12 @@ public class Product implements Serializable {
 		this.name = name;
 	}
 
-	public Double getPrice() {
-		return price;
+	public Short getage() {
+		return age;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setage(Short age) {
+		this.age = age;
 	}
 
 	public Boolean getIs_avaliable() {
@@ -93,7 +93,7 @@ public class Product implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Product other = (Product) obj;
+		User other = (User) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
